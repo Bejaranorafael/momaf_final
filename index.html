@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOMAF | Carpintería de Melamina a Medida</title>
+<meta name="description" content="Muebles a medida en melamina: cocinas, dormitorios, vestidores, livings. Armá tu mueble módulo por módulo y pedí tu cotización por WhatsApp.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="MOMAF | Carpintería de Melamina a Medida">
+<meta property="og:description" content="Diseñá tu mueble o ambiente completo en melamina: elegí tipo, armá módulos, combiná colores.">
+<meta property="og:image" content="fotos/og.jpg">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230b0f19'/><text x='50' y='68' font-size='52' font-weight='700' text-anchor='middle' fill='%23b07a4f' font-family='sans-serif'>M</text></svg>">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro" class="intro" aria-hidden="false">
+  <button type="button" id="introSkip" class="intro-skip">Saltar intro</button>
+  <div class="intro-content">
+    <div class="intro-logo">
+      <span class="intro-logo-text"><i>MO</i>MAF</span>
+      <span class="intro-logo-line"></span>
+      <p class="intro-tag">Carpintería de melamina a medida</p>
+    </div>
+    <p class="intro-phrase">Tu mueble.<br>Tus medidas.<br><b>Tu estilo.</b></p>
+    <button type="button" id="introEnter" class="intro-btn">
+      <span>Diseñar mi mueble</span>
+    </button>
+  </div>
+</div>
+
+<div id="site" class="site is-hidden">
+
+<nav>
+  <div class="wrap nav-in">
+    <a href="#" class="logo"><span>MO</span>MAF</a>
+    <div class="links">
+      <a href="#simulador">Simulador</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#placas">Placas</a>
+      <a href="#cotizador">Cotizador</a>
+    </div>
+    <a href="#cotizador" class="btn"><span>Cotizar ahora</span></a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO CORTO CENTRADO -->
+<div class="wrap hero-top">
+  <span class="tag">Muebles a medida en melamina</span>
+  <h1>Diseño minimalista. <b>Precisión artesanal.</b></h1>
+  <p class="desc">Elegí tu ambiente — cocina, dormitorio, vestidor, living — armá cada mueble módulo por módulo y pedí tu presupuesto por WhatsApp.</p>
+  <div class="cta-row">
+    <a href="#simulador" class="btn"><span>Probar el simulador</span></a>
+    <a href="#cotizador" class="link-cta">Ir al cotizador</a>
+  </div>
+</div>
+
+<!-- SIMULADOR A ANCHO COMPLETO -->
+<section class="sim-section" id="simulador">
+  <div class="wrap">
+    <div class="sim-panel">
+
+      <div class="sim-row sim-row-top">
+        <div class="mode-picker" id="modePicker" role="tablist">
+          <button class="mode-btn" data-mode="single" aria-pressed="true" role="tab">🪑 Un mueble</button>
+          <button class="mode-btn" data-mode="set" aria-pressed="false" role="tab">🏠 Ambiente completo</button>
+        </div>
+
+        <div class="stage" aria-label="Simulador interactivo de muebles">
+          <div class="stage-label">
+            <span id="stageMode" class="stage-mode">Mueble</span>
+            <b id="stageName">Bajo mesada</b>
+            <small>Combinación: <b id="stageCombo">—</b></small>
+          </div>
+          <div id="stageSvg"></div>
+        </div>
+      </div>
+
+      <div class="sim-row sim-row-mid">
+        <div class="sim-block">
+          <div class="sim-block-head">
+            <span class="sim-block-title" id="simPickLabel">Elegí el mueble</span>
+          </div>
+          <div class="tabs tabs-sets" id="setTabs" role="tablist" style="display:none"></div>
+          <div class="tabs" id="tabs" role="tablist"></div>
+          <div class="set-members" id="setMembers" style="display:none" aria-label="Muebles del ambiente"></div>
+        </div>
+
+        <div class="sim-block">
+          <div class="sim-block-head">
+            <span class="sim-block-title">🎨 Colores</span>
+            <div class="zone-picker" id="zonePicker">
+              <button class="zone" data-zone="body" aria-pressed="true">
+                <span class="dot" id="zoneDotBody"></span> Cuerpo
+              </button>
+              <button class="zone" data-zone="front" aria-pressed="false">
+                <span class="dot" id="zoneDotFront"></span> Frentes
+              </button>
+            </div>
+          </div>
+          <div class="swatches-inline" id="swatches"></div>
+        </div>
+      </div>
+
+      <div class="sim-row sim-row-bot">
+        <div class="sim-block sim-block-modules">
+          <div class="sim-block-head">
+            <span class="sim-block-title" id="meTitle">⚙️ Módulos</span>
+            <div class="me-width-control" id="meWidthWrap">
+              <label for="meTotalWidth">Ancho (cm)</label>
+              <input type="number" id="meTotalWidth" min="40" max="600" step="5" value="240">
+            </div>
+          </div>
+
+          <div class="me-bar" id="meBar" aria-hidden="true"></div>
+          <div class="me-modules" id="meModules"></div>
+
+          <div class="me-add" id="meAddWrap">
+            <select id="meAddSelect"></select>
+            <button type="button" class="btn" id="meAddBtn"><span>+ Agregar módulo</span></button>
+          </div>
+
+          <p class="me-hint">Tocá 🔒 para fijar un ancho y el resto se reparte automáticamente.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="trabajos">
+  <div class="wrap">
+    <div class="sec-title">
+      <small>Trabajos</small>
+      <h2>Proyectos terminados</h2>
+      <p>Cambiá el atributo <code>src</code> de cada imagen por tu foto real (ej: fotos/cocina.jpg).</p>
+    </div>
+    <div class="gallery">
+      <figure class="shot"><img data-ph="Cocina" alt="Cocina en melamina"><figcaption>Cocina con barra</figcaption></figure>
+      <figure class="shot"><img data-ph="Vestidor" alt="Vestidor en melamina"><figcaption>Vestidor en L</figcaption></figure>
+      <figure class="shot"><img data-ph="Placard" alt="Placard en melamina"><figcaption>Placard con puertas corredizas</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="placas">
+  <div class="wrap">
+    <div class="sec-title"><small>Materiales</small><h2>Placas que usamos</h2></div>
+    <div class="placas">
+      <article class="placa"><span class="mm">18 mm</span><h3>Estructura y estantes</h3><p>Espesor estándar para laterales, bases y estantes con buena resistencia al peso.</p></article>
+      <article class="placa"><span class="mm">15 mm</span><h3>Interiores y cajones</h3><p>Ideal para divisiones y laterales de cajón, con menor peso y mejor aprovechamiento.</p></article>
+      <article class="placa"><span class="mm">3 a 5,5 mm</span><h3>Fondos</h3><p>Cierre trasero del mueble que mantiene la escuadra y protege el interior.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="cotizador">
+  <div class="wrap">
+    <div class="sec-title"><small>Cotizador</small><h2>Pedí tu presupuesto</h2><p>Completá los datos y se arma un mensaje listo para enviarnos por WhatsApp.</p></div>
+    <div class="quote">
+      <form id="form" novalidate>
+        <div class="row two">
+          <div class="f"><label for="nombre">Tu nombre *</label><input id="nombre" autocomplete="name" placeholder="Ej: Laura"></div>
+          <div class="f"><label for="zona">Localidad *</label><input id="zona" autocomplete="address-level2" placeholder="Ej: Guernica"></div>
+        </div>
+        <div class="row two">
+          <div class="f"><label for="tipo">¿Qué mueble necesitás?</label><select id="tipo"></select></div>
+          <div class="f"><label for="contacto">Teléfono o email (opcional)</label><input id="contacto" autocomplete="tel" placeholder="Para responderte más rápido"></div>
+        </div>
+        <div class="row three">
+          <div class="f"><label for="ancho">Ancho total (cm) *</label><input id="ancho" type="number" inputmode="numeric" min="1" placeholder="240"></div>
+          <div class="f"><label for="alto">Alto (cm) *</label><input id="alto" type="number" inputmode="numeric" min="1" placeholder="260"></div>
+          <div class="f"><label for="prof">Profundidad (cm)</label><input id="prof" type="number" inputmode="numeric" min="1" placeholder="55"></div>
+        </div>
+        <div class="row two">
+          <div class="f"><label class="check"><input type="checkbox" id="cajones"> Incluir cajones extra</label></div>
+          <div class="f"><label class="check"><input type="checkbox" id="herrajes"> Herrajes premium (bisagras/guías)</label></div>
+        </div>
+      </form>
+
+      <aside class="summary" aria-live="polite">
+        <h3>Resumen de tu pedido</h3>
+        <ul class="summary-list" id="summaryList"></ul>
+        <div class="mini"><div class="mbody" title="Cuerpo"></div><div class="mfront" title="Frentes"></div></div>
+        <dl>
+          <dt>Modo</dt><dd id="sModo">Individual</dd>
+          <dt>Mueble</dt><dd id="sTipo">-</dd>
+          <dt>Cuerpo</dt><dd id="sBody">-</dd>
+          <dt>Frentes</dt><dd id="sFront">-</dd>
+          <dt>Medidas</dt><dd id="sMed">Sin completar</dd>
+          <dt>Extras</dt><dd id="sExtras">—</dd>
+          <dt>Estimado</dt><dd id="sEst" class="est">Cargá ancho y alto</dd>
+        </dl>
+        <a href="#" class="btn" id="send"><span>Enviar por WhatsApp</span></a>
+        <p class="note" id="sendNote">El estimado es orientativo. Te confirmamos el precio final por WhatsApp, sin compromiso.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="social" id="social" aria-label="Redes sociales de MOMAF"></div>
+  © <span id="y"></span> MOMAF · Carpintería de melamina a medida
+</footer>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>
+  WhatsApp
+</a>
+
+</div>
+
+<script defer src="js/config.js"></script>
+<script defer src="js/modules.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/utils.js"></script>
+<script defer src="js/simulator.js"></script>
+<script defer src="js/quote.js"></script>
+<script defer src="js/app.js"></script>
+</body>
+</html>
